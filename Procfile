@@ -1,1 +1,1 @@
-web: gunicorn taskmate-dktest.wsgi
+web: gunicorn taskmate.wsgi
