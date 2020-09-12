@@ -120,6 +120,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+# for Heroku
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -127,3 +129,4 @@ LOGIN_REDIRECT_URL = "todolist"
 LOGIN_URL = "login"
 
 django_heroku.settings(locals())
+
