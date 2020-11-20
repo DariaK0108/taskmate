@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    <title>Todo List Manager - Taskmate</title>
+    <title>To-do list manager - MyNotes</title>
 {% endblock title %}
 
 {% block content %}
@@ -27,42 +27,37 @@
         </form>
         <br>
         <!-- {{ all_tasks }} -->
-        <table class="table table-bordered text-center">
+        <table class="table text-center">
             
-            
-            <thead class="thead-dark">
+            <!--
+            <thead class="thead-dark-dk">
               <tr class="row">
-                <!-- 
-                <th scope="col">Task</th>
-                <th scope="col">Done</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-                -->
+                
                 <th class="col-7">Task</th>
                 <th class="col-3">Done</th>
                 <th class="col-1">Edit</th>
                 <th class="col-1">Delete</th>
               </tr>
             </thead>
-            
+            -->
             
             <tbody>
             {% if all_tasks %}
                 {% for obj in all_tasks %}
 
                     {% if obj.done %}
-                        <tr class="table-success row">
-                            <td class="col-7"><del>{{ obj.task }}</del></td>
-                            <td class="col-3"><a href="{% url 'pending_task' obj.id %}"><button type="button" class="btn btn-dark">Mark As Pending</button></a></td>
-                            <td class="col-1"><a href="{% url 'edit_task' obj.id %}"><button type="button" class="btn btn-warning">Edit</button></a></td>
-                            <td class="col-1"><a href="{% url 'delete_task' obj.id %}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                        <tr class="row">
+                            <td class="col-7"><del><span class="h3 titlefont1">{{ obj.task }}</span></del></td>
+                            <td class="col-3"><a href="{% url 'pending_task' obj.id %}"><button type="button" class="btn-sm btn-dark">Mark as pending</button></a></td>
+                            <td class="col-1"><a href="{% url 'edit_task' obj.id %}"><button type="button" class="btn-sm btn-warning">Edit</button></a></td>
+                            <td class="col-1"><a href="{% url 'delete_task' obj.id %}"><button type="button" class="btn-sm btn-danger">Delete</button></a></td>
                         </tr>
                     {% else %}
                         <tr class="row">
-                            <td class="col-7">{{ obj.task }}</td>
-                            <td class="col-3"><a href="{% url 'complete_task' obj.id %}"><button type="button" class="btn btn-dark">Mark As Completed</button></a></td>
-                            <td class="col-1"><a href="{% url 'edit_task' obj.id %}"><button type="button" class="btn btn-warning">Edit</button></a></td>
-                            <td class="col-1"><a href="{% url 'delete_task' obj.id %}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                            <td class="col-7"><span class="h3 titlefont1">{{ obj.task }}</span></td>
+                            <td class="col-3"><a href="{% url 'complete_task' obj.id %}"><button type="button" class="btn-sm btn-dark">Mark as completed</button></a></td>
+                            <td class="col-1"><a href="{% url 'edit_task' obj.id %}"><button type="button" class="btn-sm btn-warning">Edit</button></a></td>
+                            <td class="col-1"><a href="{% url 'delete_task' obj.id %}"><button type="button" class="btn-sm btn-danger">Delete</button></a></td>
                         </tr>
                     {% endif %}
                 {% endfor %}
@@ -75,13 +70,13 @@
               <li class="page-item"><a class="page-link" href="?pg=1"><<</a></li>
               {% if all_tasks.has_previous %}
                 <li class="page-item"><a class="page-link" href="?pg={{ all_tasks.previous_page_number }}">{{ all_tasks.previous_page_number }}</a></li>
-              {% endif%}
+              {% endif %}
               <li class="page-item active" aria-current="page">
                 <a class="page-link" href="?pg={{ all_tasks.number }}">
                     {{ all_tasks.number }} <span class="sr-only">(current)</span>
                 </a>
               </li>
-              {% if all_tasks.has_next%}
+              {% if all_tasks.has_next %}
                 <li class="page-item"><a class="page-link" href="?pg={{ all_tasks.next_page_number }}">{{ all_tasks.next_page_number }}</a></li>
               {% endif%}
               <li class="page-item"><a class="page-link" href="?pg={{ all_tasks.paginator.num_pages }}">>></a></li>

@@ -1,0 +1,47 @@
+﻿body {
+    background: linear-gradient(to bottom, #fff 0%, #9f9beb 100%);
+    font-family: 'Lato', serif;
+}
+
+.titlefont1 {
+    font-family: 'Dancing Script', cursive;
+    font-weight: normal;
+}
+.titlefont2 {
+    font-family: 'Lato', serif;
+    font-weight: normal;
+}
+
+.bg-dark {
+    background: #410270;
+}
+
+.thead-dark {
+    background: #410270;
+    color: #ffffff;
+}
+
+
+.btn-dark {
+    color: #fff;
+    background-color: #8750c7;
+    border-color: #5c2d72;
+  }
+  
+.btn-dark:hover {
+    color: #fff;
+    background-color: #5c2d72;
+    border-color: #5c2d72;
+}
+  
+  
+.btn-warning {
+    background: #fffd96;
+    
+}
+.btn-danger {
+    background: #f01a85;
+    
+}
+
+

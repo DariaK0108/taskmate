@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    <title>Edit Task - Taskmate</title>
+    <title>Edit task - MyNotes</title>
 {% endblock title %}
 
 {% block content %}
     <div class="container">
         <br>
 
-        {% task_obj.manage == request.user %}
+        {% if task_obj.manage == request.user %}
             <form method="POST" class="row">
                 {% csrf_token %}
                 <label class="col-lg-2"></label>
@@ -16,10 +16,10 @@
                 <input type="text" class="form-control col-lg-6" name="task" placeholder="{{ task_obj.task }}" value="{{ task_obj.task }}">
                 <input type="hidden" name="done" value="{{ task_obj.done }}">
                 
-                <button type="submit" class="btn btn-primary col-lg-2">Update Task</button>
+                <button type="submit" class="btn btn-primary col-lg-2">Update task</button>
             </form>
         {% else %}
-            <p>Access Restricted</p>
+            <p>Access restricted</p>
         {% endif %}
     </div>  
 {% endblock content %}
